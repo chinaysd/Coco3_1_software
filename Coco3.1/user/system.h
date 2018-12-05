@@ -8,6 +8,7 @@
 #include "bsp_uart.h"
 #include "key.h"
 #include "sys_config.h"
+#include "bsp_pushrod_direction.h"
 
 #define WATCH_DOG_CLEAR
 #define WATCH_DOG_ENABLE

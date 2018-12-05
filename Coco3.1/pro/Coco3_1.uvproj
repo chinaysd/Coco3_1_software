@@ -428,6 +428,11 @@
               <FileType>1</FileType>
               <FilePath>..\bsp\key\key_port.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_pushrod_direction.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\bsp\bsp_pushrod_direction.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

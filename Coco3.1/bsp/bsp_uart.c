@@ -145,7 +145,7 @@ void Rev_Data_Handle(void)
        switch (Temp)
        {
            case 0x0100:
-                      Data = 0x00;;
+                      Data = 0x00;
                       Rev_Flag = 1;
                       break;
            case 0x0101:

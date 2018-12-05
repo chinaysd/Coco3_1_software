@@ -13,49 +13,98 @@ unsigned char Get_Key;
 void Key_Handle(unsigned char Key)
 {
     Get_Key = Key;
-    if(Get_Key == MSG_KEY_NONE)
-    {
-      Rev_Data_Handle();  
-      if(!Rev_Flag)
-      {
-         Data =  0;  
-      }           
-    }
-    else if(Get_Key == MSG_KEY1_LONGPRESS)
-    {
-      Data =  HEAD_DOWN;
-      Rev_Flag = 0;
-    }
-    else if(Get_Key == MSG_KEY2_LONGPRESS)
-    {
-      Data =  HOME_POSITION; 
-      Rev_Flag = 0;        
-    }
-    else if(Get_Key == MSG_KEY3_LONGPRESS)
-    {
-      Data =  HEAD_UP; 
-      Rev_Flag = 0;        
-    }
-    else if(Get_Key == MSG_KEY4_LONGPRESS)
-    {
-      Data =  LARBUM_DOWN;
-      Rev_Flag = 0;        
-    }
-    else if(Get_Key == MSG_KEY5_LONGPRESS)
-    {
-      Data =  LARBUM_UP;  
-      Rev_Flag = 0;        
-    }
-    else if(Get_Key == MSG_KEY6_LONGPRESS)
-    {
-      Data =  OPEN;
-      Rev_Flag = 0;        
-    }
-    else if(Get_Key == MSG_KEY7_LONGPRESS)
-    {
-      Data =  CLOSE; 
-      Rev_Flag = 0;        
-    }
+	if(PUSH_TEMP_DIRECTION_PIN)
+	{
+	    if(Get_Key == MSG_KEY_NONE)
+	    {
+	      Rev_Data_Handle();  
+	      if(!Rev_Flag)
+	      {
+	         Data =  0;  
+	      }           
+	    }
+	    else if(Get_Key == MSG_KEY1_LONGPRESS)
+	    {
+	      Data =  HEAD_UP;
+	      Rev_Flag = 0;
+	    }
+		else if(Get_Key == MSG_KEY3_LONGPRESS)
+	    {
+	      Data =  HEAD_DOWN; 
+	      Rev_Flag = 0;        
+	    }
+	    else if(Get_Key == MSG_KEY2_LONGPRESS)
+	    {
+	      Data =  HOME_POSITION; 
+	      Rev_Flag = 0;        
+	    }
+	    else if(Get_Key == MSG_KEY4_LONGPRESS)
+	    {
+	      Data =  LARBUM_DOWN;
+	      Rev_Flag = 0;        
+	    }
+	    else if(Get_Key == MSG_KEY5_LONGPRESS)
+	    {
+	      Data =  LARBUM_UP;  
+	      Rev_Flag = 0;        
+	    }
+	    else if(Get_Key == MSG_KEY6_LONGPRESS)
+	    {
+	      Data =  OPEN;
+	      Rev_Flag = 0;        
+	    }
+	    else if(Get_Key == MSG_KEY7_LONGPRESS)
+	    {
+	      Data =  CLOSE; 
+	      Rev_Flag = 0;        
+	    }
+	}
+	else
+	{
+	   if(Get_Key == MSG_KEY_NONE)
+	    {
+	      Rev_Data_Handle();  
+	      if(!Rev_Flag)
+	      {
+	         Data =  0;  
+	      }           
+	    }
+	    else if(Get_Key == MSG_KEY1_LONGPRESS)
+	    {
+	      Data =  HEAD_DOWN;
+	      Rev_Flag = 0;
+	    }
+		else if(Get_Key == MSG_KEY3_LONGPRESS)
+	    {
+	      Data =  HEAD_UP; 
+	      Rev_Flag = 0;        
+	    }
+	    else if(Get_Key == MSG_KEY2_LONGPRESS)
+	    {
+	      Data =  HOME_POSITION; 
+	      Rev_Flag = 0;        
+	    }
+	    else if(Get_Key == MSG_KEY4_LONGPRESS)
+	    {
+	      Data =  LARBUM_UP;
+	      Rev_Flag = 0;        
+	    }
+	    else if(Get_Key == MSG_KEY5_LONGPRESS)
+	    {
+	      Data =  LARBUM_DOWN;  
+	      Rev_Flag = 0;        
+	    }
+	    else if(Get_Key == MSG_KEY6_LONGPRESS)
+	    {
+	      Data =  CLOSE;
+	      Rev_Flag = 0;        
+	    }
+	    else if(Get_Key == MSG_KEY7_LONGPRESS)
+	    {
+	      Data =  OPEN; 
+	      Rev_Flag = 0;        
+	    } 
+	}
 }
 
 void System_Init(void)
@@ -63,6 +112,7 @@ void System_Init(void)
    TimeOutDet_Init();
    Timer_Init();
    Led_App_Handle(LED_NUM);
+   Push_Temp_Direction();
    Key_Init();
    Key_Register(Key_Handle);
    Uart_Init(12,9600);
